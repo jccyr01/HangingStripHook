@@ -76,7 +76,7 @@ module hook(hook_radius) {
     translate([-(hook_radius),-(hook_radius+hook_tickness),-hook_width]) {
         difference() {
             cube([hook_radius,hook_radius,hook_width]);
-            translate([hook_radius,hook_radius+5,0]) {
+            translate([hook_radius,hook_radius+hook_tickness,0]) {
                 cylinder(r = hook_radius, h = hook_width);
             }
         }
