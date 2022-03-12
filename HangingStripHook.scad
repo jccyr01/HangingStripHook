@@ -4,7 +4,7 @@ hanging_strip_width = 18.5;
 // Height of the hanging strip (mm)
 hanging_strip_height = 93;
 // Tickness of two pieces of hanging strip attached (mm)
-hanging_strip_tickness = 3.2;
+hanging_strip_tickness = 3.8;
 
 /* [Hook parameters] */
 // Hook tickness. Should be at higher than the hanging strip thickness. (mm)
@@ -16,11 +16,14 @@ hook_angle = 180; // [140:200]
 
 /* [Hidden] */
 $fn=100;
+// Groove depth for the hanging strip. Add 0.6 of tolerance to be able to properly press the two strips together
+hanging_strip_groove_depth = hanging_strip_tickness - 0.6;
 // Width of the flat edges on each side of the hanging strip
 hook_flat_edge_width = 2;
 // Width of the hook on each side of the hanging strip. Flat edge + chamfer.
-hook_strip_edge_width = hook_flat_edge_width + sqrt(pow(hanging_strip_tickness, 2));
+hook_strip_edge_width = hook_flat_edge_width + sqrt(pow(hanging_strip_groove_depth, 2));
 hook_width = hanging_strip_width + 2 * hook_strip_edge_width;
+
 
 // Check parameters
 assert(hook_tickness > hanging_strip_tickness, "The hook tickeness should be higher than the hanging strip thickness");
@@ -56,7 +59,7 @@ module base() {
 }
 
 module hook(hook_radius) {
-    #rotate([0,180,hook_angle]) {
+    rotate([0,180,hook_angle]) {
         rotate_extrude(angle=hook_angle, convexity=10) {
             translate([hook_radius, 0]) {
                 square([hook_tickness,hook_width]);
@@ -119,7 +122,7 @@ module hanging_strip_groove() {
     groove_length = hanging_strip_height + (2 * hook_flat_edge_width);
     translate([0,-hook_flat_edge_width,hook_flat_edge_width]) {
         difference() {
-            cube([hanging_strip_tickness,groove_length,groove_width]);
+            cube([hanging_strip_groove_depth,groove_length,groove_width]);
             rotate([0,45,0]) {
                 cube([hook_strip_edge_width,groove_length,hook_strip_edge_width]);
             }
