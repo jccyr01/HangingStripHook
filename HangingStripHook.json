@@ -1,0 +1,36 @@
+{
+    "parameterSets": {
+        "Large strip": {
+            "$fn": "100",
+            "hanging_strip_height": "93",
+            "hanging_strip_tickness": "3.8",
+            "hanging_strip_width": "18.5",
+            "hook_angle": "180",
+            "hook_diameter": "36",
+            "hook_flat_edge_width": "2",
+            "hook_tickness": "5"
+        },
+        "Medium strip": {
+            "$fn": "100",
+            "hanging_strip_height": "70",
+            "hanging_strip_tickness": "3.8",
+            "hanging_strip_width": "18.5",
+            "hook_angle": "180",
+            "hook_diameter": "30",
+            "hook_flat_edge_width": "2",
+            "hook_tickness": "5"
+        },
+        "Small strip": {
+            "$fn": "100",
+            "hanging_strip_height": "47",
+            "hanging_strip_tickness": "3.8",
+            "hanging_strip_width": "16",
+            "hook_angle": "180",
+            "hook_diameter": "24",
+            "hook_flat_edge_width": "2",
+            "hook_tickness": "4.5"
+        }
+    },
+    "parameterSets": "",
+    "fileFormatVersion": "1"
+}
